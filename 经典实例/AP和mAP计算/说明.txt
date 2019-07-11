@@ -1,0 +1,4 @@
+test.txt文件存放验证集所有图片的名字，不带后缀
+Annotations文件存放验证集所有图片官方给出的xml数据，也就是gt_box
+AB.txt是某类物体AB的预测结果，具体格式进去看
+直接执行computer_mAP.py即可

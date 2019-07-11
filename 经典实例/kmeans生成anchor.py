@@ -1,3 +1,10 @@
+#  yolov3通过聚类的方式自定义anchor box的大小，在一定程度上，这可以提高定位的准确率。
+# 如何聚类？
+# 作者发现如果采用标准的k-means（即用欧式距离来衡量差异），在box的尺寸比较大的时候其误差也更大，而我们希望的是误差和box的尺寸没有太大关系。这里的意思是不能直接使用x,y,w,h x,y,w,hx,y,w,h这样的四维数据来聚类，因为框的大小不一样，这样大的定位框的误差可能更大，小的定位框误差会小，这样不均衡，很难判断聚类效果的好坏。
+# 所以通过IOU定义了如下的距离函数，使得误差和box的大小无关：
+# d(box,centroid)=1−IOU(box,centroid) d(box,centroid)=1-IOU(box,centroid)d(box,centroid)=1−IOU(box,centroid)
+# 误差的计算是n个anchor box和属于该簇下的定位框的IOU与1之差。这样大的和小的anchor box都可以划到指定的量纲上进行聚类操作，该距离越小越好，知道不再变化为止。
+
 import numpy as np
 from collections import Counter
 
