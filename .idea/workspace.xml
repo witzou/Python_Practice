@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e002655-8b5a-41e6-8bd1-be84955c3aa2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Python_Practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python_Practice.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/2019钢筋检测可视化（先遍历所有图片然后在csv找）/clw_visualize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/2019钢筋检测可视化（先遍历所有图片然后在csv找）/train_dataset_test/000C7C0E.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/2019钢筋检测可视化（先遍历所有图片然后在csv找）/train_dataset_test/03CF22F1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/2019钢筋检测可视化（先遍历所有图片然后在csv找）/train_dataset_test/4718DA7F.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/2019钢筋检测可视化（先遍历所有图片然后在csv找）/train_dataset_test/881B376F.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/2019钢筋检测可视化（先遍历所有图片然后在csv找）/train_labels.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/COCO-json数据集可视化/clw_COCO_visualization_using_pycocotools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/xml数据集可视化/2019遥感图像_数据可视化.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/经典实例/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="-70">
+              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -76,7 +81,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="29" />
     <option name="y" value="45" />
     <option name="width" value="1711" />
@@ -234,7 +239,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20982143" />
@@ -242,7 +247,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28327644" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28327644" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37201366" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -313,10 +318,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/常用数据预处理脚本/可视化/2019钢筋检测可视化/clw_visualize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/经典实例/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="-70">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
         </state>
       </provider>
     </entry>
