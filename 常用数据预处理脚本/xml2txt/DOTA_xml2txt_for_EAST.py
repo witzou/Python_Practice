@@ -62,43 +62,43 @@ for file in files:  # clw note：对文件夹里面的所有xml文件：
         for obj in root.findall('object'):
             label = str(obj.find('name').text)
             #print('clw: label = ', label)  # clw modify
-            if(label == 'back_ground'):
+            if label == 'back_ground':
                 back_ground += 1
-            elif(label == 'roundabout'):
+            elif label == 'roundabout':
                 roundabout += 1
-            elif(label == 'tennis-court'):
+            elif label == 'tennis-court' :
                 tennis_court += 1
-            elif(label == 'swimming-pool'):
+            elif label == 'swimming-pool':
                 swimming_pool += 1
-            elif(label == 'storage-tank'):
+            elif label == 'storage-tank':
                 storage_tank += 1
-            elif(label == 'soccer-ball-field'):
+            elif label == 'soccer-ball-field':
                 soccer_ball_field += 1
-            elif(label == 'small-vehicle'):
+            elif label == 'small-vehicle':
                 small_vehicle += 1
-            elif(label == 'ship'):
+            elif label == 'ship':
                 ship += 1
-            elif(label == 'plane'):
+            elif label == 'plane':
                 plane += 1
-            elif(label == 'large-vehicle'):
+            elif label == 'large-vehicle':
                 large_vehicle += 1
-            elif(label == 'helicopter'):
+            elif label == 'helicopter':
                 helicopter += 1
-            elif(label == 'harbor'):
+            elif label == 'harbor':
                 harbor += 1
-            elif(label == 'ground-track-field'):
+            elif label == 'ground-track-field':
                 ground_track_field += 1
-            elif(label == 'bridge'):
+            elif label == 'bridge':
                 bridge += 1
-            elif(label == 'basketball-court'):
+            elif label == 'basketball-court':
                 basketball_court += 1
-            elif(label == 'baseball-diamond'):
+            elif label == 'baseball-diamond':
                 baseball_diamond += 1
-            elif(label == 'helipad'):
+            elif label == 'helipad':
                 helipad += 1
-            elif(label == 'airport'):
+            elif label == 'airport':
                 airport += 1
-            elif(label == 'container-crane'):
+            elif label == 'container-crane':
                 container_crane += 1
 
 
@@ -142,7 +142,6 @@ for file in files:  # clw note：对文件夹里面的所有xml文件：
             #                                           label)
             str1 = "{},{},{},{},{},{},{},{},{}".format(x0, y0, x1, y1, x2, y2, x3, y3, label)
             f.write (str1 + "\n")
-    f.close()
 
     file_count += 1
     print('clw: file_count = ', file_count)

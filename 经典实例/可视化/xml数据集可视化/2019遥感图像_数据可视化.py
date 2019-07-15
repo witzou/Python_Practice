@@ -9,6 +9,8 @@ import cv2
 import os
 from PIL import Image
 
+# 功能说明：对data_path文件内的xxx.txt和对应的xxx.png或jpg进行可视化（clw note：txt和图片混合放在data_path指向的文件夹内）
+data_path = 'C:/Users/Administrator/Desktop/data'
 
 ###找到数据集的所有.txt文件名
 def find_all_txts(data_path):
@@ -51,7 +53,7 @@ def draw_boxes(image_path):
     # print(txt_datas)
     ###################################
 
-    img = cv2.imread('./data/{}'.format(image_name)) # clw note: 使用cv2的imread方法来加载图片，注意format函数的用法
+    img = cv2.imread(data_path + '/{}'.format(image_name)) # clw note: 使用cv2的imread方法来加载图片，注意format函数的用法
                                                       #           这里的images/{}在下面调用的时候，相当于images/raccon1-1.jpg
     for data in txt_datas:
         x1 = float(data.split(' ')[0])
@@ -70,7 +72,7 @@ def draw_boxes(image_path):
                # with cv::Mat (step[ndims-1] != elemsize or step[1] != elemsize*nchannels)
 
 
-###查看某一张图片
+# 查看某一张图片
 # clw note：如果只查看单张图片而且用Image模块，最好把上面函数改成img[:,:,::-1]，否则RGB颜色变成BGR，也就是红色看起来是蓝色。。
 def visualize_one_picture(img_path):  #比如img_path='./data/P0005.png'
     pil_im = Image.fromarray(draw_boxes(img_path)) #用PIL库的Image模块中的fromarray函数来将数组转化为图片
@@ -80,27 +82,27 @@ def visualize_one_picture(img_path):  #比如img_path='./data/P0005.png'
     #plt.imshow(img)
 
 
-###连续查看多张图片
+# 连续查看多张图片
 def visualize_pictures(data_path):
     img_list =  os.listdir(data_path)
     for img_name in img_list:
         if img_name.endswith(('.jpg','.png')):
             #方法1：调用查看单张图片的方法
-            visualize_one_picture(data_path + '/' + img_name)
+            #visualize_one_picture(data_path + '/' + img_name)
 
             #方法2：调用cv2的方法，不用PIL；好处是可以一张一张查看，比如按Esc切到下一张，不像PIL会连续打开多张图；
-            # cv2.namedWindow('image', 0);  #clw note：注意steer应该是窗口名，后面要保持一致！！
-            # #cv2.resizeWindow('image', 1024, 768); #clw note：如果图片太大显示器看不全，就缩放一下
-            # img = draw_boxes(data_path + '/' + img_name)
-            # cv2.imshow('image', img)
-            # k = cv2.waitKey(0)  # waitkey代表读取键盘的输入，括号里的数字代表等待多长时间，单位ms。 0代表一直等待
-            # if k == 27:  # 键盘上Esc键的键值
-            #     cv2.destroyAllWindows()
-            # cv2.imwrite('./' + img_name, img)  # 对图片进行保存，第一个参数表示保存后的图片名，第二个参数表示需要保存的图片
+            cv2.namedWindow('image', 0);  #clw note：注意steer应该是窗口名，后面要保持一致！！
+            #cv2.resizeWindow('image', 1024, 768); #clw note：如果图片太大显示器看不全，就缩放一下
+            img = draw_boxes(data_path + '/' + img_name)
+            cv2.imshow('image', img)
+            k = cv2.waitKey(0)  # waitkey代表读取键盘的输入，括号里的数字代表等待多长时间，单位ms。 0代表一直等待
+            if k == 27:  # 键盘上Esc键的键值
+                cv2.destroyAllWindows()
+            #cv2.imwrite('./' + img_name, img)  # 对图片进行保存，第一个参数表示保存后的图片名，第二个参数表示需要保存的图片
 
 
 def main():
-    data_path = './data'
+
     visualize_pictures(data_path)
     #visualize_one_picture(data_path + '/' + 'P0005.png')
 

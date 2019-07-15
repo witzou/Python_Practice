@@ -81,7 +81,7 @@ def save_to_xml(save_path, im_height, im_width, objects_axis, label_name, img_na
         truncated.appendChild(doc.createTextNode('1'))
         objects.appendChild(truncated)
         difficult = doc.createElement('difficult')
-        difficult.appendChild(doc.createTextNode('0'))
+        difficult.appendChild(doc.createTextNode('0')) # clw note: TODO:后续可以考虑作为参数传进来，但是需要是np.array??仿照box传进来试试
         objects.appendChild(difficult)
         bndbox = doc.createElement('bndbox')
         objects.appendChild(bndbox)
@@ -124,12 +124,15 @@ class_list = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field',
               'tennis-court', 'basketball-court',
               'storage-tank', 'soccer-ball-field',
               'roundabout', 'harbor',
-              'swimming-pool', 'helicopter']
+              'swimming-pool', 'helicopter',
+              'helipad',  'airport', 'container-crane']
 
 
+# 将txt中某一行数据组成np.array类型的bbox
 def format_label(txt_list):
     format_data = []
-    for i in txt_list[2:]:
+    #for i in txt_list[2:]:   # clw note：DOTA原始数据前两行是其他信息，这里需要跳过
+    for i in txt_list:
         format_data.append(
             #[int(xy) for xy in i.split(' ')[:8]] + [class_list.index(i.split(' ')[8])]
             [float(xy) for xy in i.split(' ')[:8]] + [class_list.index(i.split(' ')[8])] #clw modify
@@ -149,7 +152,7 @@ def format_label(txt_list):
             exit()
     return np.array(format_data)
 
-
+# clw note：暂时弃用
 def clip_image(file_idx, image, boxes_all, width, height):
     # print ('image shape', image.shape)
     if len(boxes_all) > 0:
@@ -209,15 +212,17 @@ def clip_image(file_idx, image, boxes_all, width, height):
                         cv2.imwrite(img, subImage)
 
 
+# main()
 print ('class_list', len(class_list))
-#raw_data = 'C:/Users/Administrator/Desktop/' #clw note:for windows
-#raw_images_dir = os.path.join(raw_data, 'images/') #clw note:for windows
-#raw_label_dir = os.path.join(raw_data, 'labelTxt/') #clw note:for windows
-raw_data = '/home/clwclw/dataset/DOTA/train/'
-raw_images_dir = os.path.join(raw_data, 'images_test/')
-raw_label_dir = os.path.join(raw_data, 'labelTxt_test/')
+raw_data = 'C:/Users/Administrator/Desktop/' #clw note:for windows
+raw_images_dir = os.path.join(raw_data, 'images_extract/') #clw note:for windows
+raw_label_dir = os.path.join(raw_data, 'labelTxt/') #clw note:for windows
 
-xml_dir = os.path.join(raw_data, 'annotations/')
+#raw_data = '/home/clwclw/dataset/DOTA/train/'   # clw note： for Ubuntu
+#raw_images_dir = os.path.join(raw_data, 'images_test/')
+#raw_label_dir = os.path.join(raw_data, 'labelTxt_test/')
+
+xml_dir = os.path.join(raw_data, 'Annotations/')
 if not os.path.exists(xml_dir):
     os.makedirs(xml_dir)
 
@@ -253,6 +258,7 @@ for idx, img in enumerate(images):
     # print (idx, 'min_length', min_length, 'max_length', max_length)
     box = format_label(txt_data)
     print('clw:box=', box)
+
     #clip_image(img.strip('.png'), img_data, box, 800, 800)  # clw modify
 
 
