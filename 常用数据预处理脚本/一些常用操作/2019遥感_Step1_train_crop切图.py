@@ -21,16 +21,18 @@ class_list = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field',
 #cropped_height = 800
 cropped_width = 1000 # clw modify 20190706
 cropped_height = 1000
-overlap = 256
+overlap = 744  # clw note：这里实际上不是overlap，而是图片尺寸-overlap，即步进长度
 
 #raw_data = 'C:/Users/Administrator/Desktop/'
-raw_data = 'E:/deep_learning/competion/2019yaogan/train_val/'  # clw note：主要就是配置好训练集的路径
+#raw_data = 'E:/deep_learning/competion/2019yaogan/train_val/'
+raw_data = 'H:/deep_learning/competion/2019yaogan/train/'  # clw note：主要就是配置好训练集的路径
+save_dir = raw_data + 'train_crop/'  # clw note：out
 
 ### 原始训练集输入为图片和txt格式的label，输出为crop的images及对应的labelTxt(.txt)和Annotation(.xml)
-raw_images_dir = os.path.join(raw_data, 'images')
-raw_label_dir = os.path.join(raw_data, 'labelTxt')
+raw_images_dir = os.path.join(raw_data, 'images')  # clw note：in
+raw_label_dir = os.path.join(raw_data, 'labelTxt')  # clw note：in'
 
-save_dir = raw_data + 'train_crop/'
+
 
 if not os.path.exists(save_dir): # clw note：如果没有该文件夹，则建立
     os.makedirs(save_dir)

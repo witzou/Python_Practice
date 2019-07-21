@@ -12,8 +12,8 @@ import xml.etree.ElementTree as xml_tree
 import glob
 
 #xml_path = "C:/Users/Administrator/Desktop/Annotations/"
-xml_path = "I:/deep_learning/competion/2019yaogan/train_val/train_val_crop/Annotations/"
-txt_path = "C:/Users/Administrator/Desktop/labelTxt_train_val_EAST/"
+xml_path = "H:/deep_learning/competion/2019yaogan/train/train_crop/Annotations_small-vehicle/"
+txt_path = "H:/deep_learning/competion/2019yaogan/train/train_crop/labelTxt_train_EAST/"
 files = glob.glob(xml_path + '*.xml')
 
 ##################### 可以统计一下label的数量

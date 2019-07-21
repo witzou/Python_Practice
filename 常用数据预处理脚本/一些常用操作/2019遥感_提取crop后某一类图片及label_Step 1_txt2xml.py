@@ -11,7 +11,6 @@ xml_path = 'H:/deep_learning/competion/2019yaogan/train/train_crop/Annotations/'
 txt_path = 'H:/deep_learning/competion/2019yaogan/train/train_crop/labelTxt_' + label_extract + '/'  # clw note：Step 1的out，Step 2的in
 img_path = 'H:/deep_learning/competion/2019yaogan/train/train_crop/images/'  # clw note：Setp 2的in
 save_path = 'H:/deep_learning/competion/2019yaogan/train/train_crop/images_' + label_extract + '/'  # clw note：Step 2的out
-save_path_xml = 'H:/deep_learning/competion/2019yaogan/train/train_crop/Annotations_' + label_extract + '/'
 
 # Step 1:
 # xml转txt，主要从DOTA的txt中抽取某一类物体，如'small-vehicle'等，组成新的只针对某一类的数据集
@@ -111,14 +110,12 @@ def extract_img_by_txt_name():
 
     if not os.path.exists(save_path):
         os.makedirs(save_path)
-    if not os.path.exists(save_path_xml):
-        os.makedirs(save_path_xml)
 
     txt_name_list = os.listdir(txt_path)
     print(txt_path)
 
     img_count = 0
-    xml_count = 0
+
     i = 0
     for txt_name in txt_name_list:
         # 如果图片存在
@@ -128,13 +125,6 @@ def extract_img_by_txt_name():
             # 则拷贝到另外一个文件夹内
             shutil.copy(img_path + img_name, save_path + img_name)
             img_count += 1
-
-        # xml_name = txt_name.split('.')[0] + '.xml'
-        # #print('clw:xml_name = ', xml_name)
-        # if os.path.exists(xml_path + xml_name):
-        #     # 则拷贝到另外一个文件夹内
-        #     shutil.copy(xml_path + xml_name, save_path_xml + xml_name)
-        #     xml_count += 1
 
         i += 1
         print('clw：已处理图片数量：', i)

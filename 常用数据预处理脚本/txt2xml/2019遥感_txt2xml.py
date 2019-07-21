@@ -152,82 +152,19 @@ def format_label(txt_list):
             exit()
     return np.array(format_data)
 
-# clw note：暂时弃用
-def clip_image(file_idx, image, boxes_all, width, height):
-    # print ('image shape', image.shape)
-    if len(boxes_all) > 0:
-        shape = image.shape
-        for start_h in range(0, shape[0], 256):
-            for start_w in range(0, shape[1], 256):
-                boxes = copy.deepcopy(boxes_all)
-                box = np.zeros_like(boxes_all)
-                start_h_new = start_h
-                start_w_new = start_w
-                if start_h + height > shape[0]:
-                    start_h_new = shape[0] - height
-                if start_w + width > shape[1]:
-                    start_w_new = shape[1] - width
-                top_left_row = max(start_h_new, 0)
-                top_left_col = max(start_w_new, 0)
-                bottom_right_row = min(start_h + height, shape[0])
-                bottom_right_col = min(start_w + width, shape[1])
-
-                subImage = image[top_left_row:bottom_right_row, top_left_col: bottom_right_col]
-
-                box[:, 0] = boxes[:, 0] - top_left_col
-                box[:, 2] = boxes[:, 2] - top_left_col
-                box[:, 4] = boxes[:, 4] - top_left_col
-                box[:, 6] = boxes[:, 6] - top_left_col
-
-                box[:, 1] = boxes[:, 1] - top_left_row
-                box[:, 3] = boxes[:, 3] - top_left_row
-                box[:, 5] = boxes[:, 5] - top_left_row
-                box[:, 7] = boxes[:, 7] - top_left_row
-                box[:, 8] = boxes[:, 8]
-                center_y = 0.25 * (box[:, 1] + box[:, 3] + box[:, 5] + box[:, 7])
-                center_x = 0.25 * (box[:, 0] + box[:, 2] + box[:, 4] + box[:, 6])
-                # print('center_y', center_y)
-                # print('center_x', center_x)
-                # print ('boxes', boxes)
-                # print ('boxes_all', boxes_all)
-                # print ('top_left_col', top_left_col, 'top_left_row', top_left_row)
-
-                cond1 = np.intersect1d(np.where(center_y[:] >= 0)[0], np.where(center_x[:] >= 0)[0])
-                cond2 = np.intersect1d(np.where(center_y[:] <= (bottom_right_row - top_left_row))[0],
-                                       np.where(center_x[:] <= (bottom_right_col - top_left_col))[0])
-                print('clw:cond1=', cond1)
-                print('clw:cond2=', cond2)
-                idx = np.intersect1d(cond1, cond2)  #clw note：这里应该是做crop数据增强之后，要把原来在crop之外的框去掉，只保留crop内的框
-                print('clw:idx=', idx)
-                # idx = np.where(center_y[:]>=0 and center_x[:]>=0 and center_y[:] <= (bottom_right_row - top_left_row) and center_x[:] <= (bottom_right_col - top_left_col))[0]
-                # save_path, im_width, im_height, objects_axis, label_name
-                if len(idx) > 0:
-                    xml = os.path.join(save_dir, 'labeltxt',
-                                       "%s_%04d_%04d.xml" % (file_idx, top_left_row, top_left_col))
-                    save_to_xml(xml, subImage.shape[0], subImage.shape[1], box[idx, :], class_list)
-                    # print ('save xml : ', xml)
-                    if subImage.shape[0] > 5 and subImage.shape[1] > 5:
-                        img = os.path.join(save_dir, 'images',
-                                           "%s_%04d_%04d.png" % (file_idx, top_left_row, top_left_col))
-                        cv2.imwrite(img, subImage)
-
 
 # main()
 print ('class_list', len(class_list))
-raw_data = 'C:/Users/Administrator/Desktop/' #clw note:for windows
-raw_images_dir = os.path.join(raw_data, 'images_extract/') #clw note:for windows
-raw_label_dir = os.path.join(raw_data, 'labelTxt/') #clw note:for windows
-
+raw_data = 'H:/deep_learning/competion/2019yaogan/train/train_crop/' #clw note:for windows
+raw_images_dir = os.path.join(raw_data, 'images_small-vehicle/') #clw note:for windows
+raw_label_dir = os.path.join(raw_data, 'labelTxt_small-vehicle/') #clw note:for windows
 #raw_data = '/home/clwclw/dataset/DOTA/train/'   # clw note： for Ubuntu
 #raw_images_dir = os.path.join(raw_data, 'images_test/')
 #raw_label_dir = os.path.join(raw_data, 'labelTxt_test/')
-
-xml_dir = os.path.join(raw_data, 'Annotations/')
+xml_dir = os.path.join(raw_data, 'Annotations_small-vehicle/')   # clw note：out，保存xml的路径
 if not os.path.exists(xml_dir):
     os.makedirs(xml_dir)
 
-#save_dir = 'C:/Users/Administrator/Desktop/'  #clw note:for windows
-save_dir = '/home/clwclw/dataset/DOTA/train/'
 
 images = [i for i in os.listdir(raw_images_dir) if 'png' in i]
 labels = [i for i in os.listdir(raw_label_dir) if 'txt' in i]
@@ -259,7 +196,6 @@ for idx, img in enumerate(images):
     box = format_label(txt_data)
     print('clw:box=', box)
 
-    #clip_image(img.strip('.png'), img_data, box, 800, 800)  # clw modify
 
 
 
