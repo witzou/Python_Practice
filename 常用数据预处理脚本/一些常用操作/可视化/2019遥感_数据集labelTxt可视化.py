@@ -51,7 +51,7 @@ def draw_boxes(image_path):
     # print(txt_datas)
     ###################################
 
-    img = cv2.imread('./data/{}'.format(image_name)) # clw note: 使用cv2的imread方法来加载图片，注意format函数的用法
+    img = cv2.imread(data_path + '/{}'.format(image_name)) # clw note: 使用cv2的imread方法来加载图片，注意format函数的用法
                                                       #           这里的images/{}在下面调用的时候，相当于images/raccon1-1.jpg
     for data in txt_datas:
         x1 = float(data.split(' ')[0])
@@ -100,9 +100,8 @@ def visualize_pictures(data_path):
 
 
 def main():
-    data_path = './data'
+    data_path = './data'   # clw note:注意路径格式,后面不带/
     visualize_pictures(data_path)
-    #visualize_one_picture(data_path + '/' + 'P0005.png')
 
 
 main()
