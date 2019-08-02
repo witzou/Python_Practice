@@ -289,7 +289,7 @@ for idx, img in enumerate(images):
 # img = 'P1524.png'
     print (idx, 'read image', img)
     # img_data = misc.imread(os.path.join(raw_images_dir, img))
-    img_data = cv2.imread(os.path.join(raw_images_dir, img))[:, :, ::-1]  # clw note：cv2读进来是BGR，实际需要转化为RGB
+    img_data = cv2.imread(os.path.join(raw_images_dir, img))
     # if len(img_data.shape) == 2:
         # img_data = img_data[:, :, np.newaxis]
         # print ('find gray image')
