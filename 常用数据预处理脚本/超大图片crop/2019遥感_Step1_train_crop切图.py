@@ -21,7 +21,7 @@ class_list = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field',
 #cropped_height = 800
 cropped_width = 1000 # clw modify 20190706
 cropped_height = 1000
-overlap = 744  # clw note：这里实际上不是overlap，而是图片尺寸-overlap，即步进长度
+step = 744  # clw note：这里实际上不是overlap，而是step = 图片尺寸-overlap，即步进长度
 
 #raw_data = 'C:/Users/Administrator/Desktop/'
 #raw_data = 'E:/deep_learning/competion/2019yaogan/train_val/'
@@ -220,8 +220,8 @@ def clip_image(file_idx, image, boxes_all, width, height):
 		# 暂时还是先用下面这种，即使有些地方会重复抠图，总数量还是一样的，会覆盖
         #for start_h in range(0, shape[0], 256):
             #for start_w in range(0, shape[1], 256):
-        for start_h in range(0, shape[0], overlap):
-            for start_w in range(0, shape[1], overlap):
+        for start_h in range(0, shape[0], step):
+            for start_w in range(0, shape[1], step):
                 #boxes = copy.deepcopy(boxes_all)
                 boxes = copy.deepcopy(boxes_all)  #如果比如最后剩100，不足256，那么就少移动156，然后也把它作为一个800*800的图给crop出来。之后转到下一行的最左侧重新crop
                 box = np.zeros_like(boxes_all)
