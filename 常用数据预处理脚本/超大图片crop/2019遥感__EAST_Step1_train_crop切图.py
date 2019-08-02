@@ -159,8 +159,8 @@ def save_to_xml(save_path, im_height, im_width, objects_axis, label_name, img_na
 def save_to_txt(save_path, objects_axis, label_name):
     object_num = len(objects_axis)
     with open(save_path, 'w') as f:
-        f.write('imagesource:GoogleEarth\n')
-        f.write('gsd:None\n')
+        #f.write('imagesource:GoogleEarth\n') # clw note:DOTA官方是有这两句,可以去掉;
+        #f.write('gsd:None\n')
         for i in range(object_num):
             object_name = label_name[int(objects_axis[i][-1])]
             difficult = '0'
