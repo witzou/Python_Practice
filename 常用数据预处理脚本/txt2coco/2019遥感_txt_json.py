@@ -78,27 +78,7 @@ import cv2
 import json
 import numpy as np
 img_dic = {}
-category_dic = {
-    'background': 0,
-    'roundabout': 1,
-    'tennis-court': 2,
-    'swimming-pool': 3,
-    'storage-tank': 4,
-    'soccer-ball-field': 5,
-    'small-vehicle': 6,
-    'ship': 7,
-    'plane': 8,
-    'large-vehicle': 9,
-    'helicopter': 10,
-    'harbor': 11,
-    'ground-track-field': 12,
-    'bridge': 13,
-    'basketball-court': 14,
-    'baseball-diamond': 15,
-    'helipad': 16,
-    'airport': 17,
-    'container-crane': 18
-}
+category_dic = {}
 img_folder = '/media/clwclw/Elements/deep_learning/competion/2019yaogan/train/train_crop_800_bigger_64/images'
 txt_folder = '/media/clwclw/Elements/deep_learning/competion/2019yaogan/train/train_crop_800_bigger_64/labelTxt'
 
