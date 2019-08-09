@@ -7,6 +7,9 @@
 @Date: 2019-04-23 13:43:24
 @LastEditTime: 2019-04-30 21:29:26
 '''
+##### clw note:注意，带label的图片保存在当前路径下的一个名为anno_image_coco的文件夹内，这里取了大概7张图片；
+
+
 from pycocotools.coco import COCO
 import skimage.io as io
 import matplotlib.pyplot as plt
