@@ -117,7 +117,7 @@ for txt_name in txt_list:
                 points = np.array(res[:8]).astype('float').tolist()
 
                 #################################################################################################
-                # clw note: COCO默认是水平矩形框,但这里是四边形框,而且顺时针或逆时针都不一定,因此考虑使用cv2,先转成矩形框
+                # clw note: COCO默认是水平矩形框,但这里是接近矩形的四边形框,而且顺时针或逆时针都不一定,因此考虑使用cv2,先转成矩形框
                 # 从txt读入points[0]到points[7]，表示四个点的坐标
                 rect = cv2.minAreaRect(np.float32([[points[0], points[1]], [points[2], points[3]],
                                                  [points[4], points[5]], [points[6], points[7]]]))
