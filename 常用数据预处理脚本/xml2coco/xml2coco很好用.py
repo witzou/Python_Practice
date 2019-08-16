@@ -1,5 +1,4 @@
 # https://github.com/JialianW/pascal2coco/blob/e136f0b8d50b78e8715d2ada89397ea9b7729ef4/pascal2coco.py
-# 自注：结果可能不太对。。。
 
 import json
 import xml.etree.ElementTree as ET
