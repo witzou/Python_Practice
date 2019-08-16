@@ -4,7 +4,6 @@ import json
 import xml.etree.ElementTree as ET
 import os
 
-
 ###### 需要配置以下几项：
 annotation_path = '/media/clwclw/data/2018yuncong/Part_AB/annotations/'#clw note：添加自己的Pascal VOC的annotation文件路径'
 my_classes = ['background','head']    #clw note：第二项，添加自己的class，比如person,dog,car等等；目前不知多分类是否可以
@@ -37,7 +36,6 @@ def load_load_image_labels(LABEL_PATH, class_name=[]):
         size=root.find('size')
         width = float(size.find('width').text)
         height = float(size.find('height').text)
-
         images.append({
             "file_name": image_file,
 			"height": height,
@@ -55,6 +53,10 @@ def load_load_image_labels(LABEL_PATH, class_name=[]):
             ymax = float(bbox.find('ymax').text)
             xlen = xmax-xmin
             ylen = ymax-ymin
+
+            assert xlen != 0, 'xlen即bbox宽度不能等于0,该图片名字为:%s, 对应的xmin, ymin为%d, %d' %(image_file, xmin, ymin)
+            assert ylen != 0, 'ylen即bbox高度不能等于0,该图片名字为:%s,对应的xmin, ymin为%d, %d'  %(image_file, xmin, ymin)
+
             annotations.append({
                                 "segmentation" : [[xmin, ymin, xmin, ymax, xmax, ymax, xmax, ymin],],
                                 "area" : xlen*ylen,
