@@ -1,5 +1,4 @@
 # https://github.com/JialianW/pascal2coco/blob/e136f0b8d50b78e8715d2ada89397ea9b7729ef4/pascal2coco.py
-# 自注：结果可能不太对。。。
 
 import json
 import xml.etree.ElementTree as ET
@@ -22,7 +21,7 @@ def load_load_image_labels(LABEL_PATH, class_name=[]):
     categories = [
 		{
 			"id" : 1,
-			"name" : "head",  # clw note：根据实际情况添加,如果像人头计数一样只有一个类别head,那么只有id=1,如果多类别就增加id=2.....
+			"name" : "head",  # 根据实际情况添加,如果像人头计数一样只有一个类别head,那么只有id=1,如果多类别就增加id=2.....
 			"supercategory" : "none"
 		},
 	]
@@ -61,7 +60,7 @@ def load_load_image_labels(LABEL_PATH, class_name=[]):
                                 "area" : xlen*ylen,
                                 "iscrowd": 0,
                                 "image_id": image_id,
-                                "bbox" : [xmin, ymin, xmax, ymax],  # clw note:根据实际情况修改
+                                "bbox" : [xmin, ymin, xmax-xmin, ymax-ymin],  # clw note:根据实际情况修改
                                 "category_id": cls_id,
                                 "id": id_number,   #初始值id_number为0，每处理完一个xml文件，id_number+1
                                 "ignore":0
