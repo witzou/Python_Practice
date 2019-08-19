@@ -20,19 +20,19 @@ NEED_ORDER = True  # clw note:如果需要保持一定的顺序,比如官方给�
                    # 反之如果没有顺序要求,或者只有一类物体如head,那么可以让 NEED_ORDER = False
                    # 中文转Unicode地址:http://tool.chinaz.com/tools/unicode.aspx
 if NEED_ORDER:
-    categories = ['\u7834\u6d1e', '\u6c34\u6e0d', '\u6cb9\u6e0d', '\u6c61\u6e0d',
+    my_categories = ['\u7834\u6d1e', '\u6c34\u6e0d', '\u6cb9\u6e0d', '\u6c61\u6e0d',
                   '\u4e09\u4e1d', '\u7ed3\u5934', '\u82b1\u677f\u8df3', '\u767e\u811a', '\u6bdb\u7c92',
                   '\u7c97\u7ecf', '\u677e\u7ecf', '\u65ad\u7ecf', '\u540a\u7ecf', '\u7c97\u7ef4',
                   '\u7eac\u7f29', '\u6d46\u6591', '\u6574\u7ecf\u7ed3', '\u661f\u8df3', '\u8df3\u82b1',
                   '\u65ad\u6c28\u7eb6', '\u7a00\u5bc6\u6863', '\u6d6a\u7eb9\u6863', '\u8272\u5dee\u6863', '\u78e8\u75d5',
                   '\u8f67\u75d5', '\u4fee\u75d5', '\u70e7\u6bdb\u75d5', '\u6b7b\u76b1', '\u4e91\u7ec7',
-                  '\u53cc\u7ef4', '\u53cc\u7ecf', '\u8df3\u7eb1', '\u7b58\u8def', '\u7eac\u7eb1\u4e0d\u826f']
-    for i in range(len(categories)):
-        category_dic[categories[i]] = i + 1
+                  '\u53cc\u7eac', '\u53cc\u7ecf', '\u8df3\u7eb1', '\u7b58\u8def', '\u7eac\u7eb1\u4e0d\u826f']
+    for i in range(len(my_categories)):
+        category_dic[my_categories[i]] = i + 1
         categories.append({
             "supercategory": "none",
             "id": i + 1,
-            "name": categories[i]})
+            "name": my_categories[i]})
         i += 1
 #####################################################
 
