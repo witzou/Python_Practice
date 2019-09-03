@@ -7,8 +7,9 @@ import numpy as np
 img_dic = {}
 category_dic = {}
 
+img_and_anno_root = '/mfs/home/fangyong/data/guangdong/train/'
 #img_folder = 'C:/Users/Administrator/Desktop/defect_Images/'
-img_folder = '/media/clwclw/data/2019tianchi/guangdong1_round1_train1_20190818/defect_Images/'
+img_folder = img_and_anno_root + 'defect_Images/'
 file_list = os.listdir(img_folder)
 id = 1
 images = []
@@ -55,7 +56,7 @@ annid = 1
 #####################################################
 import json
 #annFile = 'C:/Users/Administrator/Desktop/Annotations/gt_result.json'
-annFile = '/media/clwclw/data/2019tianchi/guangdong1_round1_train1_20190818/Annotations/anno_train.json'
+annFile = img_and_anno_root + 'Annotations/anno_train.json'
 file = open(annFile, "rb")
 data_list = json.load(file)
 data_list = sorted(data_list,key = lambda e:e['name'],reverse = True)
@@ -96,7 +97,7 @@ jsonfile = {}
 jsonfile['images'] = images
 jsonfile['categories'] = categories
 jsonfile['annotations'] = annotations
-with open("/media/clwclw/data/2019tianchi/guangdong1_round1_train1_20190818/Annotations/train.json",'w',encoding='utf-8') as f:
+with open(img_and_anno_root + "Annotations/train.json",'w',encoding='utf-8') as f:
     json.dump(jsonfile,f)
 
 print('clw:category_dic = ', category_dic)
