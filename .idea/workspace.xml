@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e002655-8b5a-41e6-8bd1-be84955c3aa2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Python_Practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python_Practice.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/coco2coco/2019天池_coco2coco.py" beforeDir="false" afterPath="$PROJECT_DIR$/常用数据预处理脚本/coco2coco/2019天池_coco2coco.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/coco数据可视化/2019天池_可视化.py" beforeDir="false" afterPath="$PROJECT_DIR$/常用数据预处理脚本/可视化/coco数据可视化/2019天池_可视化.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/coco数据可视化/2018云从_coco可视化.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/coco数据可视化/2019天池_可视化.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/coco数据可视化/2019遥感_maskrcnn_benchmark_json可视化.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/csv数据可视化/2018云从.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/csv数据可视化/2019钢筋检测可视化（先遍历所有图片然后在csv找）.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/csv数据可视化/train_dataset_test/000C7C0E.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/csv数据可视化/train_dataset_test/03CF22F1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/csv数据可视化/train_labels.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/txt数据可视化/2019遥感_txt和img放一起.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/txt数据可视化/2019遥感_数据集_输入labelTxt可视化.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/txt数据可视化/2019遥感_预测output_txt可视化.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/xml可视化/2018云从_放在annotations和images两个文件夹.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/图片及bbox尺寸统计/(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/图片及bbox尺寸统计/2019书法_查看文件夹内所有图片的宽度和高度最大值.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/图片及bbox尺寸统计/2019遥感_数据集尺寸分布统计（by DetectionTeamUCAS）.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/图片及bbox尺寸统计/2019遥感_数据集尺寸分布统计（by队友）.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +57,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.2019天池_可视化">
+  <component name="RunManager" selected="Python.(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸">
+    <configuration name="2019天池_可视化 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Python_Practice" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/常用数据预处理脚本/数据标注可视化/coco数据可视化" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/常用数据预处理脚本/数据标注可视化/coco数据可视化/2019天池_可视化.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="2019天池_可视化" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python_Practice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -88,6 +121,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Python_Practice" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/常用数据预处理脚本/数据分布统计" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/常用数据预处理脚本/数据分布统计/(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="clw_visualize (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python_Practice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -109,55 +163,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="clw_visualize" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Python_Practice" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="F:/deep_learning/competion/2019钢筋检测/数据集" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="F:/deep_learning/competion/2019钢筋检测/数据集/clw_visualize.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Python_Practice" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/经典实例" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/经典实例/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸" />
+        <item itemvalue="Python.2019天池_可视化 (1)" />
         <item itemvalue="Python.2019天池_可视化" />
         <item itemvalue="Python.2019天池_coco2coco" />
         <item itemvalue="Python.clw_visualize (1)" />
-        <item itemvalue="Python.clw_visualize" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -206,9 +218,19 @@
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/常用数据预处理脚本/可视化/coco数据可视化/2019天池_可视化.py</url>
-          <line>111</line>
-          <option name="timeStamp" value="40" />
+          <url>file://$PROJECT_DIR$/常用数据预处理脚本/数据分布统计/(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸.py</url>
+          <line>186</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/常用数据预处理脚本/数据标注可视化/coco数据可视化/2019天池_可视化.py</url>
+          <line>101</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/常用数据预处理脚本/数据分布统计/(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸.py</url>
+          <line>119</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
