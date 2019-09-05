@@ -5,7 +5,7 @@ Created on Sat Mar  9 21:50:25 2019
 """
 
 img_and_anno_root = '/mfs/home/fangyong/data/guangdong/train/'
-
+#img_and_anno_root ='K:/deep_learning/dataset/2019tianchi/train/'
 ###########################################################################################
 
 #### 1、统计所有图片的宽度、高度的分布情况
@@ -169,7 +169,7 @@ import matplotlib as mpl #新增包
 mpl.rcParams['font.size'] = 12 #设置字体大小
 plt.rcParams['font.family'] = 'SimSun'  # 设置全局的字体
 custom_font = mpl.font_manager.FontProperties(fname='/home/user/clwclw/simsun.ttf') #导入字体文件
-
+#custom_font = mpl.font_manager.FontProperties(fname='C:/Windows/Fonts/msyh.ttc') #导入字体文件
 
 # （1）一幅图的gt数量的统计直方图
 bbox_counts = Counter(file_names)
@@ -227,7 +227,7 @@ for x, y in enumerate(num_list):
 
 plt.title('每一类缺陷个数统计', fontsize=24, fontproperties=custom_font)
 plt.xlabel('类别', fontsize=14, fontproperties=custom_font)
-plt.ylabel('bbox数量', fontsize=14, fontproperties=custom_font)
+plt.ylabel('bounding box数量', fontsize=14, fontproperties=custom_font)
 
 # （3）bbox大小统计
 name_list = ['<=16x16', '16x16~32x32', '32x32~96x96', '96x96~384x384', '>384x384'] # 前开后闭
@@ -236,9 +236,9 @@ fig, ax = plt.subplots()
 bbb = ax.bar(range(len(name_list)), num_list, color='cornflowerblue', tick_label=name_list, width=0.5)  # x：bar的横坐标
 for x, y in enumerate(num_list):
     ax.text(x, y+1, y, ha='center', va='bottom', fontsize=10)
-plt.title('bbox尺寸大小统计', fontsize=24, fontproperties=custom_font)
+plt.title('bounding box尺寸大小统计', fontsize=24, fontproperties=custom_font)
 plt.xlabel('面积范围', fontsize=14, fontproperties=custom_font)
-plt.ylabel('bbox个数', fontsize=14, fontproperties=custom_font)
+plt.ylabel('bounding box个数', fontsize=14, fontproperties=custom_font)
 
 # （4）bbox长宽比统计
 name_list = ['<0.05', '0.05~0.1', '0.1~0.2', '0.2~0.3', '0.3~0.4', '0.4~0.5', '0.5~0.6', '0.6~0.7', '0.7~0.8', '0.8~0.9', '0.9~1.0'] # 前开后闭
@@ -248,9 +248,9 @@ fig, ax = plt.subplots()
 bbb = ax.bar(range(len(name_list)), num_list, color='cornflowerblue', tick_label=name_list, width=0.5)  # x：bar的横坐标
 for x, y in enumerate(num_list):
     ax.text(x, y+1, y, ha='center', va='bottom', fontsize=10)
-plt.title('bbox ratio统计', fontsize=24, fontproperties=custom_font)
-plt.xlabel('ratio范围', fontsize=14, fontproperties=custom_font)
-plt.ylabel('bbox个数', fontsize=14, fontproperties=custom_font)
+plt.title('bounding box宽高比统计', fontsize=24, fontproperties=custom_font)
+plt.xlabel('宽高比范围', fontsize=14, fontproperties=custom_font)
+plt.ylabel('bounding box个数', fontsize=14, fontproperties=custom_font)
 
 
 

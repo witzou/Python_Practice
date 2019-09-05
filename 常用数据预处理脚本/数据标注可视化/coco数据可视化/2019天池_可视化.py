@@ -22,6 +22,7 @@ from PIL import Image, ImageDraw, ImageFont
 #pylab.rcParams['figure.figsize'] = (8.0, 10.0)
 
 img_and_anno_root = '/mfs/home/fangyong/data/guangdong/train/'
+#img_and_anno_root ='K:/deep_learning/dataset/2019tianchi/train/'
 img_path = img_and_anno_root + 'defect_Images/'
 annFile = img_and_anno_root + 'Annotations/train.json'
 img_save_path = img_and_anno_root + 'visualized_image'
@@ -43,6 +44,7 @@ def draw_rectangle(boxes, labels, image):
         draw = ImageDraw.Draw(pilimg)  # 图片上打印
         #font = ImageFont.truetype('/media/clwclw/data/fonts/simsun.ttf', 20, encoding="utf-8")
         font = ImageFont.truetype('/home/user/clwclw/simsun.ttf', 36, encoding="utf-8")
+        #font = ImageFont.truetype('C:/Windows/Fonts/msyh.ttc', 36, encoding="utf-8")
 
         left = float(box[0])
         top = float(box[1])
