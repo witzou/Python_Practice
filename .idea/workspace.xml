@@ -3,22 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e002655-8b5a-41e6-8bd1-be84955c3aa2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/coco数据可视化/2018云从_coco可视化.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/coco数据可视化/2019天池_可视化.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/coco数据可视化/2019遥感_maskrcnn_benchmark_json可视化.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/csv数据可视化/2018云从.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/csv数据可视化/2019钢筋检测可视化（先遍历所有图片然后在csv找）.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/csv数据可视化/train_dataset_test/000C7C0E.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/csv数据可视化/train_dataset_test/03CF22F1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/csv数据可视化/train_labels.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/txt数据可视化/2019遥感_txt和img放一起.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/txt数据可视化/2019遥感_数据集_输入labelTxt可视化.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/txt数据可视化/2019遥感_预测output_txt可视化.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/可视化/xml可视化/2018云从_放在annotations和images两个文件夹.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/图片及bbox尺寸统计/(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/图片及bbox尺寸统计/2019书法_查看文件夹内所有图片的宽度和高度最大值.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/图片及bbox尺寸统计/2019遥感_数据集尺寸分布统计（by DetectionTeamUCAS）.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/图片及bbox尺寸统计/2019遥感_数据集尺寸分布统计（by队友）.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常用数据预处理脚本/数据分布统计/(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸.py" beforeDir="false" afterPath="$PROJECT_DIR$/常用数据预处理脚本/数据分布统计/(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +27,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mmdetection" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
@@ -218,19 +203,9 @@
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/常用数据预处理脚本/数据分布统计/(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸.py</url>
-          <line>186</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/常用数据预处理脚本/数据标注可视化/coco数据可视化/2019天池_可视化.py</url>
           <line>101</line>
           <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/常用数据预处理脚本/数据分布统计/(只针对本比赛的特殊格式json)2019天池_分别统计图片和bbox尺寸.py</url>
-          <line>119</line>
-          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

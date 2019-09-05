@@ -40,10 +40,6 @@ img_and_anno_root = '/mfs/home/fangyong/data/guangdong/train/'
 
 
 
-
-
-
-
 #### 2、统计所有bbox的宽度、高度、宽高比最值和分布情况
 import json
 
@@ -57,17 +53,31 @@ bbox_height_list = []
 bbox_ratio_list = []
 bbox_area_list = []
 
-bbox_count_all = 0
-
-bbox_too_big_count = 0
-bbox_too_small_count= 0
 bbox_too_high_count= 0
 bbox_too_wide_count= 0
 
-too_big_threshold = 96*96
-too_small_threshold = 32*32
-too_high_threshold = 1/8.
-too_wide_threshold = 8/1
+bbox_count_all = 0
+bbox_big_count = 0
+bbox_small_count= 0
+bbox_too_big_count = 0
+bbox_too_small_count= 0
+bbox_normal_count= 0
+big_threshold = 96*96
+too_big_threshold = 384*384
+small_threshold = 32*32
+too_small_threshold = 16*16
+
+bbox_ratio0_count = 0
+bbox_ratio1_count = 0
+bbox_ratio2_count = 0
+bbox_ratio3_count = 0
+bbox_ratio4_count = 0
+bbox_ratio5_count = 0
+bbox_ratio6_count = 0
+bbox_ratio7_count = 0
+bbox_ratio8_count = 0
+bbox_ratio9_count = 0
+bbox_ratio10_count = 0
 
 file_names = []
 defect_names = []
@@ -79,24 +89,75 @@ for data in data_list:
     bbox_width = float(data['bbox'][2]) - float(data['bbox'][0])
     bbox_height = float(data['bbox'][3]) - float(data['bbox'][1])
     bbox_ratio = bbox_width / bbox_height
+    if bbox_ratio > 1:
+        bbox_ratio = 1.0 / bbox_ratio
     bbox_area = bbox_width * bbox_height
 
-    if (bbox_area < too_small_threshold):
+    # 统计bbox大小分布
+    if bbox_area <= too_small_threshold:
         bbox_too_small_count += 1
-    if (bbox_area > too_big_threshold):
+    elif bbox_area > too_small_threshold and bbox_area <= small_threshold:
+        bbox_small_count += 1
+    elif bbox_area > small_threshold and bbox_area <= big_threshold:
+        bbox_normal_count += 1
+    elif bbox_area > big_threshold and bbox_area <= too_big_threshold:
+        bbox_big_count += 1
+    elif bbox_area > too_big_threshold:
         bbox_too_big_count += 1
-    if (bbox_ratio < too_high_threshold):
-        bbox_too_high_count += 1
-    if (bbox_ratio > too_wide_threshold):
-        bbox_too_wide_count += 1
+
+    # 统计bbox ratio分布  （前开后闭）
+    if bbox_ratio <= 0.05:
+        bbox_ratio0_count += 1
+    if bbox_ratio > 0.05 and bbox_ratio <= 0.1:
+        bbox_ratio1_count += 1
+    elif bbox_ratio > 0.1 and bbox_ratio <= 0.2:
+        bbox_ratio2_count += 1
+    elif bbox_ratio > 0.2 and bbox_ratio <= 0.3:
+        bbox_ratio3_count += 1
+    elif bbox_ratio > 0.3 and bbox_ratio <= 0.4:
+        bbox_ratio4_count += 1
+    elif bbox_ratio > 0.4 and bbox_ratio <= 0.5:
+        bbox_ratio5_count += 1
+    elif bbox_ratio > 0.5 and bbox_ratio <= 0.6:
+        bbox_ratio6_count += 1
+    elif bbox_ratio > 0.6 and bbox_ratio <= 0.7:
+        bbox_ratio7_count += 1
+    elif bbox_ratio > 0.7 and bbox_ratio <= 0.8:
+        bbox_ratio8_count += 1
+    elif bbox_ratio > 0.8 and bbox_ratio <= 0.9:
+        bbox_ratio9_count += 1
+    elif bbox_ratio > 0.9 and bbox_ratio <= 1.0:
+        bbox_ratio10_count += 1
 
     bbox_width_list.append(bbox_width)
     bbox_height_list.append(bbox_height)
     bbox_ratio_list.append(bbox_ratio)
     bbox_area_list.append(bbox_area)
 
+# print('clw:bbox数量共计：', bbox_count_all)
+# print('clw:bbox宽度：', sorted(bbox_width_list))
+# print('clw:bbox高度：', sorted(bbox_height_list))
+# print('clw:bbox宽高比）：',sorted(bbox_ratio_list))
+# print('clw:bbox面积）：',sorted(bbox_area_list))
+#
+# print('clw:bbox面积大于 %f 的有 %d 个' % (too_big_threshold, bbox_too_big_count))
+# print('clw:bbox面积小于 %f 的有 %d 个' % (too_small_threshold, bbox_too_small_count))
+# print('clw:bbox宽高比小于 %f 的有 %d 个）' % (too_high_threshold, bbox_too_high_count))
+# print('clw:bbox宽高比大于 %f 的有 %d 个）' % (too_wide_threshold, bbox_too_wide_count))
+#
+#
+# # result_width = Counter(bbox_width_list)     # 统计不同宽度的图片数量
+# # result_height = Counter(bbox_height_list)   # 统计不同高度的图片数量
+# # result_ratio = Counter(bbox_ratio_list)   # 统计不同高度的图片数量
+# #
+# # print('clw:bbox宽度统计（宽度：个数）：',result_width)
+# # print('clw:bbox高度统计（高度：个数）：',result_height)
+# # print('clw:bbox宽高比统计（宽高比：个数）：',result_ratio)
 
 
+#########################
+### 作图
+########################
 import matplotlib.pyplot as plt
 import numpy as np
 from collections import Counter
@@ -127,13 +188,15 @@ for i in range(bbox_count_max+1):
 bbb = plt.bar(range(bbox_count_max+1), num_list, color='cornflowerblue', tick_label=range(bbox_count_max+1), log=True)  # x：bar的横坐标
 for x, y in enumerate(num_list):
     if y == 0:  # 直方图如果高度为0，就不用在上面加个数字0了，否则很难看
-        continue
+        plt.text(x, y + 0.7, y, ha='center', va='bottom', fontsize=10)
+    elif y <= 3:
+        plt.text(x, y + 0.1, y, ha='center', va='bottom', fontsize=10)  # font='/home/user/clwclw/simsun.ttf'
     else:
         plt.text(x, y+1, y, ha='center', va='bottom', fontsize=10)  # font='/home/user/clwclw/simsun.ttf'   # 前三个参数：x,y:表示坐标值上的值，string:表示说明文字
 
-plt.title('含有一定gt数量的图片个数统计', fontsize=24, fontproperties=custom_font)
-plt.xlabel('gt Numbers', fontsize=14, fontproperties=custom_font)
-plt.ylabel('Picture Numbers', fontsize=14, fontproperties=custom_font)
+plt.title('含有一定数量object的图片个数统计', fontsize=24, fontproperties=custom_font)
+plt.xlabel('object个数', fontsize=14, fontproperties=custom_font)
+plt.ylabel('图片数量', fontsize=14, fontproperties=custom_font)
 
 
 # （2）34类缺陷，每一类缺陷个数的直方图
@@ -163,43 +226,37 @@ for x, y in enumerate(num_list):
     ax.text(x, y+1, y, ha='center', va='bottom', fontsize=10)  # font='/home/user/clwclw/simsun.ttf'   # 前三个参数：x,y:表示坐标值上的值，string:表示说明文字
 
 plt.title('每一类缺陷个数统计', fontsize=24, fontproperties=custom_font)
-plt.xlabel('Type', fontsize=14, fontproperties=custom_font)
-plt.ylabel('Number', fontsize=14, fontproperties=custom_font)
+plt.xlabel('类别', fontsize=14, fontproperties=custom_font)
+plt.ylabel('bbox数量', fontsize=14, fontproperties=custom_font)
+
+# （3）bbox大小统计
+name_list = ['<=16x16', '16x16~32x32', '32x32~96x96', '96x96~384x384', '>384x384'] # 前开后闭
+num_list = [bbox_too_small_count, bbox_small_count, bbox_normal_count, bbox_big_count, bbox_too_big_count]
+fig, ax = plt.subplots()
+bbb = ax.bar(range(len(name_list)), num_list, color='cornflowerblue', tick_label=name_list, width=0.5)  # x：bar的横坐标
+for x, y in enumerate(num_list):
+    ax.text(x, y+1, y, ha='center', va='bottom', fontsize=10)
+plt.title('bbox尺寸大小统计', fontsize=24, fontproperties=custom_font)
+plt.xlabel('面积范围', fontsize=14, fontproperties=custom_font)
+plt.ylabel('bbox个数', fontsize=14, fontproperties=custom_font)
+
+# （4）bbox长宽比统计
+name_list = ['<0.05', '0.05~0.1', '0.1~0.2', '0.2~0.3', '0.3~0.4', '0.4~0.5', '0.5~0.6', '0.6~0.7', '0.7~0.8', '0.8~0.9', '0.9~1.0'] # 前开后闭
+num_list = [bbox_ratio0_count, bbox_ratio1_count, bbox_ratio2_count, bbox_ratio3_count, bbox_ratio4_count, bbox_ratio5_count,
+            bbox_ratio6_count, bbox_ratio7_count, bbox_ratio8_count, bbox_ratio9_count, bbox_ratio10_count]
+fig, ax = plt.subplots()
+bbb = ax.bar(range(len(name_list)), num_list, color='cornflowerblue', tick_label=name_list, width=0.5)  # x：bar的横坐标
+for x, y in enumerate(num_list):
+    ax.text(x, y+1, y, ha='center', va='bottom', fontsize=10)
+plt.title('bbox ratio统计', fontsize=24, fontproperties=custom_font)
+plt.xlabel('ratio范围', fontsize=14, fontproperties=custom_font)
+plt.ylabel('bbox个数', fontsize=14, fontproperties=custom_font)
+
+
+
+
+
+
 plt.show()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-print('clw:bbox数量共计：', bbox_count_all)
-print('clw:bbox宽度：', sorted(bbox_width_list))
-print('clw:bbox高度：', sorted(bbox_height_list))
-print('clw:bbox宽高比）：',sorted(bbox_ratio_list))
-print('clw:bbox面积）：',sorted(bbox_area_list))
-
-print('clw:bbox面积大于 %f 的有 %d 个' % (too_big_threshold, bbox_too_big_count))
-print('clw:bbox面积小于 %f 的有 %d 个' % (too_small_threshold, bbox_too_small_count))
-print('clw:bbox宽高比小于 %f 的有 %d 个）' % (too_high_threshold, bbox_too_high_count))
-print('clw:bbox宽高比大于 %f 的有 %d 个）' % (too_wide_threshold, bbox_too_wide_count))
-
-
-# result_width = Counter(bbox_width_list)     # 统计不同宽度的图片数量
-# result_height = Counter(bbox_height_list)   # 统计不同高度的图片数量
-# result_ratio = Counter(bbox_ratio_list)   # 统计不同高度的图片数量
-#
-# print('clw:bbox宽度统计（宽度：个数）：',result_width)
-# print('clw:bbox高度统计（高度：个数）：',result_height)
-# print('clw:bbox宽高比统计（宽高比：个数）：',result_ratio)
