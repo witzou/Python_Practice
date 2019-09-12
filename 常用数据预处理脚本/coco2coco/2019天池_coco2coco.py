@@ -60,7 +60,7 @@ annFile = img_and_anno_root + 'Annotations/anno_train.json'
 file = open(annFile, "rb")
 data_list = json.load(file)
 data_list = sorted(data_list,key = lambda e:e['name'],reverse = True)
-######################################################3
+######################################################
 
 # 取出data中相应文件名的文件
 print('clw:total bbox number: ', len(data_list))
