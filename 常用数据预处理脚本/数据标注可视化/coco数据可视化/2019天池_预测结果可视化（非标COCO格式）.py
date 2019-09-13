@@ -81,6 +81,7 @@ for i in range(len(img_list)):
     scores = []
     for j in range(len(data_list)):
         if data_list[j]['name'] == img_list[i]: # 匹配
+            # 1、找到对应的bbox坐标
             coordinate = []
             coordinate.append(data_list[j]['bbox'][0])
             coordinate.append(data_list[j]['bbox'][1])
