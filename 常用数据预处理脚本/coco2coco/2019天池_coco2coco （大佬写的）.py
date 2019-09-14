@@ -51,7 +51,7 @@ class Fabric2COCO:
             h,w=1000,2446
             self.images.append(self._image(img_path,h, w))
 
-            self._cp_img(img_path)
+            #self._cp_img(img_path)
 
             for bbox, defect_name in zip(bboxs, defect_names):
                 label= defect_name2label[defect_name]
@@ -123,12 +123,12 @@ class Fabric2COCO:
 
 
 '''转换有瑕疵的样本为coco格式'''
-img_dir = "data/guangdong1_round1_train1_20190818/defect_Images"
-anno_dir="data/guangdong1_round1_train1_20190818/Annotations/anno_train.json"
+img_dir = "/media/clwclw/data/2019tianchi/train_val/defect_Images"
+anno_dir = "/media/clwclw/data/2019tianchi/train_val/Annotations/anno_train.json"
 fabric2coco = Fabric2COCO()
 train_instance = fabric2coco.to_coco(anno_dir,img_dir)
-if not os.path.exists("coco/annotations/"):
-    os.makedirs("coco/annotations/")
-fabric2coco.save_coco_json(train_instance, "coco/annotations/"+'instances_{}.json'.format("train"))
+#if not os.path.exists("coco/annotations/"):
+#    os.makedirs("coco/annotations/")
+fabric2coco.save_coco_json(train_instance, "/media/clwclw/data/2019tianchi/train_val/Annotations/train.json")
 
 '''需要注意的是，在标注文件中，给出了具体的疵点名称defect_name，而转换脚本中直接映射为评测中用到的category_id。defect_name到category_id是在训练前映射还是在前传时映射可以自由选择。'''
