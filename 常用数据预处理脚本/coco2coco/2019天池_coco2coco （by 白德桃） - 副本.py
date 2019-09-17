@@ -1,4 +1,4 @@
-### 作者：白德桃
+### 作者：白德桃，2019天池纺织品缺陷检测比赛论坛分享
 # https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.3.43b46448AmIjUk&postId=71169
 
 '''

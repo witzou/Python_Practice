@@ -1,5 +1,6 @@
 # for maskrcnn benchmark， written by 队友 chenjiahao and 本人
 # 总共要改三个地方: 1 图片路径 2 json文件路径 3 保存json的路径
+# 自注：感觉速度不太行，明显比大佬要慢很多 2019.9.16注
 import os
 import cv2
 import json
