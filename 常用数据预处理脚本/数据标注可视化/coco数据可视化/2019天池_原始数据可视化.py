@@ -21,7 +21,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 #pylab.rcParams['figure.figsize'] = (8.0, 10.0)
 
-img_and_anno_root = '/mfs/home/fangyong/data/guangdong/train/'
+img_and_anno_root = '/mfs/home/fangyong/data/guangdong/train_val/'
 #img_and_anno_root ='K:/deep_learning/dataset/2019tianchi/train/'
 img_path = img_and_anno_root + 'defect_Images/'
 annFile = img_and_anno_root + 'Annotations/train.json'
@@ -43,7 +43,7 @@ def draw_rectangle(boxes, labels, image):
         pilimg = Image.fromarray(cv2img)
         draw = ImageDraw.Draw(pilimg)  # 图片上打印
         #font = ImageFont.truetype('/media/clwclw/data/fonts/simsun.ttf', 20, encoding="utf-8")
-        font = ImageFont.truetype('/home/user/clwclw/simsun.ttf', 36, encoding="utf-8")
+        font = ImageFont.truetype('./simsun.ttf', 36, encoding="utf-8")
         #font = ImageFont.truetype('C:/Windows/Fonts/msyh.ttc', 36, encoding="utf-8")
 
         left = float(box[0])
@@ -102,9 +102,9 @@ if VISUALIZE_SINGLE:
                 labels.append(cats[anns[j]['category_id']]['name'])
 
             image = draw_rectangle(coordinates, labels, img_raw)
-            cv2.namedWindow("clwclw",0);
-            cv2.resizeWindow("clwclw", 1600, 1200);
-            cv2.imshow('clwclw', image)
+            cv2.namedWindow(image_name, 0);
+            cv2.resizeWindow(image_name, 1280, 1024);
+            cv2.imshow(image_name, image)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
 
@@ -113,7 +113,8 @@ if VISUALIZE_SINGLE:
 
 else:
     # 查看所有图片
-    for i in range(len(img_list)):
+    #for i in range(len(img_list)):
+    for i in range(3000, len(img_list)):  # look up from xxxx
     # for i in range(5): # clw note：随机查看几张
         imgIds = i+1
         img = coco.loadImgs(imgIds)[0]
@@ -148,12 +149,13 @@ else:
             coordinates.append(coordinate)
 
             # 2、找到对应的标签
-            labels.append(cats[anns[j]['category_id']]['name'])
+            labels.append(cats[anns[j]['category_id'] - 1 ]['name']) # clw note: the reason to -1 is that the first is 1 but the index should be 0
 
         image = draw_rectangle(coordinates, labels, img_raw)
-        cv2.namedWindow("clwclw",0);
-        cv2.resizeWindow("clwclw", 1600, 1200);
-        cv2.imshow('clwclw', image)
+        cv2.namedWindow(image_name, 0);
+        cv2.resizeWindow(image_name, 1600, 1200);
+        cv2.moveWindow(image_name, 0, 0);
+        cv2.imshow(image_name, image)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
